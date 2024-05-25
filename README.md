@@ -1,4 +1,5 @@
 # AutoAttendance
+Developed by: Myself and [Luke Britton](https://github.com/lukewb21).
 A program that connects to the university's attendance website and checks periodically for new lectures, then automatically attends them.
 
 ## Dependencies
