@@ -3,6 +3,7 @@ Developed by: Myself and [Luke Britton](https://github.com/lukewb21).\
 A program that connects to the university's attendance website and checks periodically for new lectures, then automatically attends them.
 
 ## Dependencies
+- Google Chrome &rightarrow; [Chrome](https://www.google.com/chrome) must be installed to `C:/Program Files/Google/Chrome/Application/chrome.exe`, or change line 46 of `server.mjs` to match your install.
 - NodeJS &rightarrow; Run `winget install OpenJS.NodeJS`. This includes npm.
 - puppeteer &rightarrow; Run `npm install puppeteer` in the project directory.
 - puppeteer-extra &rightarrow; Run `npm install puppeteer-extra` in the project directory.

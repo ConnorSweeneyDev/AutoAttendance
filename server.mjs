@@ -3,6 +3,7 @@ import StealthPlugin from 'puppeteer-extra-plugin-stealth';
 import readline from 'readline';
 import fs from 'fs';
 import chalk from 'chalk';
+import {setTimeout} from 'node:timers/promises';
 
 // USE CHALK TO FORMAT CONSOLE OUTPUT //
 // INPUT = YELLOW
@@ -35,7 +36,7 @@ const connorURL = 'https://www.github.com/connorsweeneydev';
 const connorText = '@connorsweeneydev';
 const connorLink = `\u001B]8;;${connorURL}\u0007${connorText}\u001B]8;;\u0007`;
 
-const v = '1.5.4';
+const v = '1.5.5';
 
 async function main() {
     puppeteer.use(StealthPlugin());
@@ -156,7 +157,7 @@ async function main() {
         console.log('Clicking next...');
 
         // Wait for the next page to load
-        await page.waitForTimeout(1000);
+        await setTimeout(1000);
         console.clear();
 
         // Check if the title says 'Enter password' using the xpath
@@ -210,7 +211,7 @@ async function main() {
             console.clear();
             titleElement = await page.$x(titleXPath);
             
-            await page.waitForTimeout(1000);
+            await setTimeout(1000);
     
             if (titleElement.length > 0) {
                 title = await page.evaluate(element => element.textContent, titleElement[0]);
@@ -318,18 +319,18 @@ async function main() {
                 console.log(chalk.green("2FA Authentication Complete!"));
             } else {
                 console.log(chalk.red("2FA failed! Please try again."));
-                await page.waitForTimeout(1000);
+                await setTimeout(1000);
                 console.clear();
                 await page.goto(RHULattendanceURL);
-                await page.waitForTimeout(1000);
+                await setTimeout(1000);
             }
         }
     } catch (error) {
         console.log(chalk.red("2FA failed! Please try again."));
-        await page.waitForTimeout(1000);
+        await setTimeout(1000);
         console.clear();
         await page.goto(RHULattendanceURL);
-        await page.waitForTimeout(1000);
+        await setTimeout(1000);
     }
 
     console.clear();
@@ -376,7 +377,7 @@ async function main() {
     };
 
     console.log(chalk.green('Sign In Complete!'));
-    await page.waitForTimeout(1000);
+    await setTimeout(1000);
     console.clear();
 
     // REGISTER ATTENDANCE //
@@ -419,7 +420,7 @@ async function main() {
         if (((minutes + 1) % 15 == 0) && (seconds == 0 || seconds == 1)) {
             console.log("Refreshing...");
             await page.reload();
-            await page.waitForTimeout(1000);
+            await setTimeout(1000);
         }
 
         if (minutes == target || firstRun) {
@@ -470,10 +471,10 @@ async function main() {
 
         if (lecture1 == false && lecture2 == false && check == true) {
             console.log(chalk.green("No pending registrations."));
-            await page.waitForTimeout(60000); // wait for 1 minute to prevent multiple registrations
+            await setTimeout(60000); // wait for 1 minute to prevent multiple registrations
         } else if ((lecture1 == true || lecture2 == true) && check == true) {
             console.log(chalk.green("All pending registrations complete."));
-            await page.waitForTimeout(60000); // wait for 1 minute to prevent multiple registrations
+            await setTimeout(60000); // wait for 1 minute to prevent multiple registrations
         } else {
             if (minutes < parseInt(target)) {
                 console.log("Waiting for " + hours + ":" + target + "...");
@@ -487,7 +488,7 @@ async function main() {
         lecture2 = false;
 
         // stops clock from spamming the console
-        await page.waitForTimeout(1000);
+        await setTimeout(1000);
         console.clear();
     }
 
