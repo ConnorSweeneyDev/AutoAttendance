@@ -1,0 +1,15 @@
+# AutoAttendance
+A program that connects to the university's attendance website and checks periodically for new lectures, then automatically attends them.
+
+## Dependencies
+- NodeJS &rightarrow; Run `winget install OpenJS.NodeJS`. This includes npm.
+- puppeteer &rightarrow; Run `npm install puppeteer` in the project directory.
+- puppeteer-extra &rightarrow; Run `npm install puppeteer-extra` in the project directory.
+- puppeteer-extra-plugin-stealth &rightarrow; Run `npm install puppeteer-extra-plugin-stealth` in the project directory.
+- readline &rightarrow; Run `npm install readline` in the project directory.
+- fs &rightarrow; Run `npm install fs` in the project directory.
+- chalk &rightarrow; Run `npm install chalk` in the project directory.
+- nodemon &rightarrow; Run `npm install -g nodemon` in any directory.
+
+## Usage
+After cloning just run `system/run.bat` from the project directory and sign in, you can save your credentials for future use.
